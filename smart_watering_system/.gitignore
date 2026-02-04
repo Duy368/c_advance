@@ -1,0 +1,14 @@
+# Ignore directory containing temporary build files
+output/
+
+# Ignore intermediate files (Preprocessor, Assembly, Object)
+*.i
+*.s
+*.o
+
+# Ignore final executable files
+*.out
+smart_watering_system
+
+# Ignore VS Code specific configuration files
+.vscode/
