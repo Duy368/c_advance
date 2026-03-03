@@ -61,7 +61,7 @@ void history_log_activity(const char* entry) {
 
 void history_navigate(void) {
     if (!history_head) {
-        printf("Nhật ký trống!\n");
+        printf("Empty log!\n");
         return;
     }
     HistoryNode_t* current = history_head;
@@ -73,10 +73,10 @@ void history_navigate(void) {
         scanf(" %c", &cmd);
         if (cmd == 'n') {
             if (current->next) current = current->next;
-            else printf(">> Cuối danh sách!\n");
+            else printf(">> End of log!\n");
         } else if (cmd == 'p') {
             if (current->prev) current = current->prev;
-            else printf(">> Đầu danh sách!\n");
+            else printf(">> Beginning of log!\n");
         } else if (cmd == 'q') break;
     }
 }
@@ -97,7 +97,7 @@ int main() {
                 printf("Executing: %s (Freeing %p)\n", task->task_description, (void*)task);
                 history_log_activity(task->task_description);
                 free(task);
-            } else printf("Queue empty!\n");
+            } else printf("Queue is empty!\n");
         } else if (strcmp(cmd, "history") == 0) {
             history_navigate();
         } else if (strcmp(cmd, "exit") == 0) break;
